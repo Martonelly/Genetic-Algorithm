@@ -12,21 +12,30 @@ def selectOne(population):
     
     return population[npr.choice(len(population), p=selectProbs)]
 
-def select(population):
-    #print(population)
-    retPopulation = []
-    # we need to add some sort of elitism --> like 10 precent of the best fitness
-    tempLen = len(population) / 30
-    tempLen = round(tempLen) 
-    # shold leave the best --> if possible switch this with a function 
-    for i in range(tempLen):
-        retPopulation.append(population[i])
-    # now fill the remaining population with the "Random" selections
 
-    for i in range(tempLen-1, len(population)):
-       # print(f"The population number is: {i} \n")
-        retPopulation.append(selectOne(population))
-    # print("---------Newly Selected---------")
-    # print(retPopulation)
-    # print("--------------------------------")
+
+def select(population, number):
+    retPopulation = []
+    if (number == 0):
+        #print(population)
+        # we need to add some sort of elitism --> like 10 precent of the best fitness
+        tempLen = len(population) / 30
+        tempLen = round(tempLen) 
+        # shold leave the best --> if possible switch this with a function 
+        for i in range(tempLen):
+            retPopulation.append(population[i])
+        # now fill the remaining population with the "Random" selections
+
+        for i in range(tempLen-1, len(population)):
+        # print(f"The population number is: {i} \n")
+            retPopulation.append(selectOne(population))
+        # print("---------Newly Selected---------")
+        # print(retPopulation)
+        # print("--------------------------------")
+    else:
+        for i in range(number):
+            retPopulation.append(selectOne(population))
+
     return retPopulation
+
+

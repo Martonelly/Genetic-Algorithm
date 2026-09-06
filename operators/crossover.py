@@ -10,6 +10,7 @@ from model import Chromosome
 # strictly between the number (current)
 def crossover(population):
     tempPopulation = []
+    #We put the elititsm here
     for j in range(len(population)):
         rand = random.randint(0, len(population)-1)
         # if (j == len(population)-1):
@@ -32,7 +33,7 @@ def crossover(population):
 
         tempChromosome = Chromosome.C(newX, newY)
         #calculate the fitness
-        functions.simple(tempChromosome)
+        functions.myFunction(tempChromosome)
         tempPopulation.append(tempChromosome)
 
     return tempPopulation
