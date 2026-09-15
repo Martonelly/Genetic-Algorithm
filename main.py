@@ -2,7 +2,7 @@ import time
 
 from model import Chromosome
 from fitness import functions
-from operators import rouletSelection, crossover, mutation, rankSelection, steadyStateSelection
+from operators import rouletSelection, crossover, mutation, rankSelection, steadyStateSelection, tournamentSelection
 import random
 
 #we need the statrting genreations and the main algorithm
@@ -68,7 +68,8 @@ for i in range(generationLen):
         #     offspring.append(population[i])
         #SELECTION
         #offspring = rouletSelection.select(population,round(len(population)/10))
-        offspring = rankSelection.select(population, round(len(population)/10))
+        #offspring = rankSelection.select(population, round(len(population)/10))
+        offspring = tournamentSelection.select(population, round(len(population)/10), 4)
         offspring = crossover.crossover(offspring)
         #Mutation 
         offspring = mutation.mutate(offspring)
