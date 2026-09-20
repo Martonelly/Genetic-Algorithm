@@ -33,7 +33,7 @@ def crossover(population):
 
         tempChromosome = Chromosome.C(newX, newY)
         #calculate the fitness
-        functions.myFunction(tempChromosome)
+        functions.fitnessRosenbruck(tempChromosome)
         tempPopulation.append(tempChromosome)
 
     return tempPopulation

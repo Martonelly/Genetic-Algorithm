@@ -14,12 +14,12 @@ def selectOne(population):
 
 
 
-def select(population, number):
+def select(population, number, elitism):
     retPopulation = []
     if (number == 0):
         #print(population)
         # we need to add some sort of elitism --> like 10 precent of the best fitness
-        tempLen = len(population) / 30
+        tempLen = (len(population) / 100) * elitism
         tempLen = round(tempLen) 
         # shold leave the best --> if possible switch this with a function 
         for i in range(tempLen):

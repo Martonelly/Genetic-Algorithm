@@ -20,7 +20,7 @@ def mutate(population):
         rand = random.random() * 100
         rand = round(rand)
         individual =  mutateSingle(rand, population[i])
-        functions.myFunction(individual)
+        functions.fitnessRosenbruck(individual)
         population[i] = individual
     
     return population

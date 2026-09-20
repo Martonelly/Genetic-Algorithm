@@ -8,11 +8,11 @@ def selectOne(population, variable):
     best = parents[0]
     return best
 
-def select(population, number, variable):
+def select(population, number, variable, elitism):
 
     retPopulation = []
     # we need to add some sort of elitism --> like 10 precent of the best fitness
-    tempLen = len(population) / 10
+    tempLen = len(population) / 100 * elitism
     tempLen = round(tempLen) 
     # shold leave the best --> if possible switch this with a function 
     
