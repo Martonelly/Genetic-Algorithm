@@ -3,8 +3,10 @@ import random
 
 from fitness import functions
 
-def mutateSingle(rand, individual):
-    if (rand%5==0):
+def mutateSingle(rand, individual, precentage):
+    if (precentage==0):
+        return individual
+    if (rand%precentage==0):
         step = random.uniform(0, 2.35)
         if (round(random.random()*100)%2==0):
             individual.x -= step
@@ -15,11 +17,11 @@ def mutateSingle(rand, individual):
         
     return individual
 
-def mutate(population):
+def mutate(population, precentage):
     for i in range(len(population)):
         rand = random.random() * 100
         rand = round(rand)
-        individual =  mutateSingle(rand, population[i])
+        individual =  mutateSingle(rand, population[i], precentage)
         functions.fitnessRosenbruck(individual)
         population[i] = individual
     
