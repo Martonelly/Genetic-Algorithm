@@ -22,6 +22,7 @@ def mutate(population, precentage):
         rand = random.random() * 100
         rand = round(rand)
         individual =  mutateSingle(rand, population[i], precentage)
+        #functions.fitnessRosenbruck(individual)
         functions.fitnessRosenbruck(individual)
         population[i] = individual
     

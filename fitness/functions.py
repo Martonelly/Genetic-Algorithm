@@ -17,3 +17,7 @@ def myFunction(chromosome):
     funk_value = (x**2 + y**2 + x*y - math.sin(2*y**2) + 2*y)
     chromosome.fitness = -funk_value
 
+def himmelBlau(chromosome):
+    x,y = chromosome.x, chromosome.y  
+    funk_value = (x**2 + y - 11)**2 + (x + y**2 - 7)**2
+    chromosome.fitness = -funk_value
